@@ -1,3 +1,47 @@
-.container {
-  width: 1024px;
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font: normal 10pt Arial,Helvetica,sans-serif;
+  background: #EFEFEF;
+
+  .container {
+    width: 950px;
+    margin: auto; // Равный отступ от краёв
+    display: block;
+    background-color: blue;
+
+    .header {
+      margin: 0;
+      padding: 0;
+      border-top: 3px solid #C9E0ED;
+      background-color: white;
+
+      h1 {
+        margin: 0;
+        padding: 10px 20px;
+        font-size: 200%;
+      }
+    }
+
+    .nav {
+      background-color: cornflowerblue;
+
+      ul {
+        padding: 6px 20px 5px 20px;
+        margin: 0;
+
+        li {
+          display: inline;  //элементы списка в линию
+
+          a {
+            padding: 5px 8px;
+            text-decoration: none;
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }

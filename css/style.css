@@ -1,5 +1,41 @@
-.container {
-  width: 1024px;
+body {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font: normal 10pt Arial, Helvetica, sans-serif;
+  background: #EFEFEF;
+}
+body .container {
+  width: 950px;
+  margin: auto;
+  display: block;
+  background-color: blue;
+}
+body .container .header {
+  margin: 0;
+  padding: 0;
+  border-top: 3px solid #C9E0ED;
+  background-color: white;
+}
+body .container .header h1 {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 200%;
+}
+body .container .nav {
+  background-color: cornflowerblue;
+}
+body .container .nav ul {
+  padding: 6px 20px 5px 20px;
+  margin: 0;
+}
+body .container .nav ul li {
+  display: inline;
+}
+body .container .nav ul li a {
+  padding: 5px 8px;
+  text-decoration: none;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
