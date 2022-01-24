@@ -37,5 +37,15 @@ body .container .nav ul li a {
   text-decoration: none;
   color: white;
 }
+body .container .content {
+  background-color: #c2c4fa;
+}
+body .container .content ul {
+  padding: 6px 20px 5px 20px;
+  margin: 0;
+}
+body .container .content ul li {
+  display: inline;
+}
 
 /*# sourceMappingURL=style.css.map */
