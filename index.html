@@ -27,6 +27,27 @@
 		</nav>
 
 		<div class="content">
+			<div class="timer">
+<!--				<div class="timer_panel">-->
+<!--					-->
+<!--				</div>-->
+				<table class="timer_panel" id="timer_panel">
+					<tbody>
+					<tr>
+						<td style="text-align: center;">
+							<div id="timer_panel_view" class="hidden">
+								<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+							</div>
+							<div id="timer_panel_edit" class="timer_panel_edit">
+								<input type="text" value="01" maxlength="2" id="txHours" autofocus="autofocus" nextinput="txMinutes" readonly="readonly">
+								<input type="text" value="00" maxlength="2" id="txMinutes" nextinput="txSeconds" readonly="readonly">
+								<input type="text" value="00" maxlength="2" id="txSeconds" readonly="readonly">
+							</div>
+						</td>
+					</tr>
+					</tbody></table>
+			</div>
+			<input type="button" class="num_button" value="5" name="num_button">
 			<ul>
 				<li>
 					Часы
