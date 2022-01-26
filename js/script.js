@@ -30,12 +30,47 @@ function resetValue() {
 //         alert('Время вышло');
 // }
 
+let test3 = inputTimeInSeconds;
+
+setInterval(function () { timer(); }, 1000);
+
+// Функция перевода времени в секунды
+
 function inputTimeInSeconds() {
     let hoursInSeconds = txHours.value * 3600;
-    let minutsInSeconds = txMinutes.value * 60;
-    let seconds = txSeconds.value;
-    alert(hoursInSeconds);
-    alert(minutsInSeconds);
-    alert(seconds);
+    let minutesInSeconds = txMinutes.value * 60;
+    let seconds = txSeconds.value * 1;
+    // alert(hoursInSeconds);
+    // alert(minutesInSeconds);
+    // alert(seconds);
+    let summTimeInSeconds = hoursInSeconds + minutesInSeconds + seconds;
+    // alert(summTimeInSeconds);
+    return summTimeInSeconds;
 }
+
+// function timer() {
+//     while (inputTimeInSeconds() != 0) {
+//         txHours = Math.trunc(inputTimeInSeconds() / 3600);
+//         txMinutes = Math.trunc((inputTimeInSeconds() / 60) - (txHours * 60));
+//         alert(txMinutes);
+//         alert(txHours);
+//         let test = inputTimeInSeconds() - 1;
+//         // alert(test);
+//         // txHours = test / 3600;
+//     }
+// }
+
+function timer() {
+    let copyTxHours = txHours.value
+    let hoursInRealTime = Math.trunc(inputTimeInSeconds() / 3600);
+    // txHours = Math.trunc(inputTimeInSeconds() / 3600);
+    let minutesInRealTime = Math.trunc((inputTimeInSeconds() / 60) - (copyTxHours * 60));
+    // txMinutes = Math.trunc((inputTimeInSeconds() / 60) - (txHours * 60));
+    let secondsInRealTime = Math.trunc(inputTimeInSeconds() - (minutesInRealTime * 60) - (hoursInRealTime * 3600));
+    // alert(hoursInRealTime);
+    // alert(minutesInRealTime);
+    // alert(test);
+    // txHours = test / 3600;
+}
+
 
