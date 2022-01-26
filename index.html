@@ -40,14 +40,18 @@
 							</div>
 							<div id="timer_panel_edit" class="timer_panel_edit">
 								<input type="text" value="01" maxlength="2" id="txHours" autofocus="autofocus" nextinput="txMinutes" readonly="readonly">
-								<input type="text" value="00" maxlength="2" id="txMinutes" nextinput="txSeconds" readonly="readonly">
-								<input type="text" value="00" maxlength="2" id="txSeconds" readonly="readonly">
+								<input type="text" value="02" maxlength="2" id="txMinutes" nextinput="txSeconds" readonly="readonly">
+								<input type="text" value="03" maxlength="2" id="txSeconds" readonly="readonly">
 							</div>
 						</td>
 					</tr>
 					</tbody></table>
 			</div>
-			<input type="button" class="num_button" value="5" name="num_button">
+			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="5" name="num_button">
+			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="6" name="num_button">
+
+			<input type="button" onclick="resetValue()" class="num_button" value="Очистить" name="num_button">
+
 			<ul>
 				<li>
 					Часы
