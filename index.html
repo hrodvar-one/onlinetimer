@@ -34,35 +34,37 @@
 				<table class="timer_panel" id="timer_panel">
 					<tbody>
 					<tr>
-						<td style="text-align: center;">
-							<div id="timer_panel_view" class="hidden">
-								<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+						<th>Часы</th>
+						<th>Минуты</th>
+						<th>Секунды</th>
+					</tr>
+					<tr>
+						<td>
+							<div class="timer_panel_edit">
+								<input type="text" value="01" maxlength="2" id="txHours" autofocus="autofocus">
 							</div>
-							<div id="timer_panel_edit" class="timer_panel_edit">
-								<input type="text" value="01" maxlength="2" id="txHours" autofocus="autofocus" nextinput="txMinutes" readonly="readonly">
-								<input type="text" value="02" maxlength="2" id="txMinutes" nextinput="txSeconds" readonly="readonly">
-								<input type="text" value="03" maxlength="2" id="txSeconds" readonly="readonly">
+						</td>
+						<td>
+							<div class="timer_panel_edit">
+								<input type="text" value="02" maxlength="2" id="txMinutes">
+							</div>
+						</td>
+						<td>
+							<div class="timer_panel_edit">
+								<input type="text" value="03" maxlength="2" id="txSeconds">
 							</div>
 						</td>
 					</tr>
-					</tbody></table>
+					</tbody>
+				</table>
 			</div>
 			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="5" name="num_button">
 			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="6" name="num_button">
 
 			<input type="button" onclick="resetValue()" class="num_button" value="Очистить" name="num_button">
+			<input type="button" onclick="setupValue()" class="num_button" value="Проверка нулей" name="num_button">
+			<input type="button" onclick="inputTimeInSeconds()" class="num_button" value="Проверка нулей" name="num_button">
 
-			<ul>
-				<li>
-					Часы
-				</li>
-				<li>
-					Минуты
-				</li>
-				<li>
-					Секунды
-				</li>
-			</ul>
 		</div>
 
 		<footer class="footer">

@@ -40,12 +40,25 @@ body .container .nav ul li a {
 body .container .content {
   background-color: #c2c4fa;
 }
-body .container .content ul {
-  padding: 6px 20px 5px 20px;
-  margin: 0;
+body .container .content .timer {
+  height: 300px;
+  width: 100%;
 }
-body .container .content ul li {
-  display: inline;
+body .container .content .timer .timer_panel {
+  width: 100%;
+}
+body .container .content .timer .timer_panel th {
+  height: 50px;
+}
+body .container .content .timer .timer_panel td {
+  text-align: center;
+}
+body .container .content .timer .timer_panel td input {
+  height: 223px;
+  width: 223px;
+  text-align: center;
+  font-size: 200px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

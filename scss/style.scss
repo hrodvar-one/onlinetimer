@@ -47,12 +47,28 @@ body {
     .content {
       background-color: #c2c4fa;
 
-      ul {
-        padding: 6px 20px 5px 20px;
-        margin: 0;
+      .timer {
+        height: 300px;
+        width: 100%;
 
-        li {
-          display: inline; //элементы списка в линию
+        .timer_panel {
+          width: 100%;
+
+          th {
+            height: 50px;
+          }
+
+          td {
+            text-align: center;
+
+            input {
+              height: 223px;
+              width: 223px;
+              text-align: center;
+              font-size: 200px;
+              font-weight: bold;
+            }
+          }
         }
       }
     }
