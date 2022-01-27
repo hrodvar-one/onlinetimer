@@ -59,21 +59,6 @@ function copyValueTo(fromElem, toElemId) {
 //     }
 // }
 
-function timer() {
-    let copyTxHours = txHours.value
-    let hoursInRealTime = Math.trunc(inputTimeInSeconds() / 3600);
-    // txHours = Math.trunc(inputTimeInSeconds() / 3600);
-    let minutesInRealTime = Math.trunc((inputTimeInSeconds() / 60) - (copyTxHours * 60));
-    // txMinutes = Math.trunc((inputTimeInSeconds() / 60) - (txHours * 60));
-    let secondsInRealTime = Math.trunc(inputTimeInSeconds() - (minutesInRealTime * 60) - (hoursInRealTime * 3600));
-    // alert(hoursInRealTime);
-    // alert(minutesInRealTime);
-    // alert(test);
-    // txHours = test / 3600;
-}
-
-// let test = document.getElementById("txSeconds");
-
 function inputTimeInSeconds() {
     let hoursInSeconds = txHours.value * 3600;
     let minutesInSeconds = txMinutes.value * 60;
@@ -95,33 +80,33 @@ function inputTimeInSeconds() {
     document.getElementById("txHours").value = hoursInSeconds;
     document.getElementById("txMinutes").value = minutesInSeconds;
     document.getElementById("txSeconds").value = seconds;
-    if (hoursInSeconds == 0 && minutesInSeconds == 0 && seconds == 0) {
-        return alert('Время вышло');
-    }
-}
-
-function startTimer () {
-    setInterval(function () { inputTimeInSeconds(); }, 1000);
+    // if (hoursInSeconds == 0 && minutesInSeconds == 0 && seconds == -1) {
+    //     return alert('Время вышло');
+    // }
 }
 
 // function startTimer () {
-//     let hours = txHours.value;
-//     let minutes = txMinutes.value;
-//     let secondsTwo = txSeconds.value;
-//     if (hours != 0 && minutes != 0 && secondsTwo !=0) {
-//         setInterval(function () { inputTimeInSeconds()}, 1000);
-//     } else {
-//         return alert('Время вышло');
-//     }
+//     document.getElementById("start-button").value = "Пауза";
+//     setInterval(function () { inputTimeInSeconds(); }, 1000);
 // }
 
+// Ввожу любую переменную и использую её для остановки setInterval
+let stopTimer = 1;
+
+function startTimer () {
+    stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
+    // setInterval(function () { inputTimeInSeconds(); }, 1000);
+}
+
 // Функция сброса значений цифрового счётчика до значения 00
+// и остановки таймера.
 
 function resetValue() {
     let elem = document.getElementById("txHours");
-    elem.value = "00";
+    elem.value = "0";
     let elemTwo = document.getElementById("txMinutes");
-    elemTwo.value = "00";
+    elemTwo.value = "0";
     let elemThree = document.getElementById("txSeconds");
-    elemThree.value = "00";
+    elemThree.value = "0";
+    clearInterval(stopTimer);
 }
