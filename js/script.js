@@ -80,9 +80,16 @@ function inputTimeInSeconds() {
     document.getElementById("txHours").value = hoursInSeconds;
     document.getElementById("txMinutes").value = minutesInSeconds;
     document.getElementById("txSeconds").value = seconds;
-    // if (hoursInSeconds == 0 && minutesInSeconds == 0 && seconds == -1) {
-    //     return alert('Время вышло');
-    // }
+    // Если значения в ячейках времени равны нулю,то есть таймер
+    // дошёл до конца, то останавливаем таймер
+    if (hoursInSeconds == 0 && minutesInSeconds == 0 && seconds == 0) {
+        clearInterval(stopTimer);
+        // Функция задержки вывода сообщения об окончании времени
+        function exitMessage() {
+            alert('Время вышло');
+        }
+        setTimeout(exitMessage, 1000);
+    }
 }
 
 // function startTimer () {

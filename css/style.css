@@ -84,6 +84,7 @@ body .container .content .button-panel .reset-button {
   color: black;
 }
 body .container .content .button-panel .pause-button {
+  display: none;
   background-color: chocolate;
   width: 220px;
   height: 75px;
