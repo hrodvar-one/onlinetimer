@@ -71,6 +71,21 @@ body {
           }
         }
       }
+
+      .button-panel {
+        text-align: center;
+
+        .timer-button {
+          background-color: #118811;
+          width: 220px;
+          height: 75px;
+          border: 5px black solid;
+          border-radius: 10px;
+          font-size: 40px;
+          font-weight: bold;
+          color: black;
+        }
+      }
     }
   }
 }

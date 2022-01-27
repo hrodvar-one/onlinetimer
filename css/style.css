@@ -60,5 +60,18 @@ body .container .content .timer .timer_panel td input {
   font-size: 200px;
   font-weight: bold;
 }
+body .container .content .button-panel {
+  text-align: center;
+}
+body .container .content .button-panel .timer-button {
+  background-color: #118811;
+  width: 220px;
+  height: 75px;
+  border: 5px black solid;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+}
 
 /*# sourceMappingURL=style.css.map */

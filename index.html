@@ -41,31 +41,30 @@
 					<tr>
 						<td>
 							<div class="timer_panel_edit">
-								<input type="text" value="01" maxlength="2" id="txHours" autofocus="autofocus">
+								<input type="text" value="0" maxlength="2" id="txHours" autofocus="autofocus">
 							</div>
 						</td>
 						<td>
 							<div class="timer_panel_edit">
-								<input type="text" value="02" maxlength="2" id="txMinutes">
+								<input type="text" value="0" maxlength="2" id="txMinutes">
 							</div>
 						</td>
 						<td>
 							<div class="timer_panel_edit">
-								<input type="text" value="03" maxlength="2" id="txSeconds">
+								<input type="text" value="0" maxlength="2" id="txSeconds">
 							</div>
 						</td>
 					</tr>
 					</tbody>
 				</table>
 			</div>
-			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="5" name="num_button">
-			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="6" name="num_button">
+			<div class="button-panel">
+				<!--			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="5" name="num_button">-->
+				<!--			<input type="button" onclick="copyValueTo(this, 'txHours')" class="num_button" value="6" name="num_button">-->
 
-			<input type="button" onclick="resetValue()" class="num_button" value="Очистить" name="num_button">
-<!--			<input type="button" onclick="setupValue()" class="num_button" value="Проверка нулей" name="num_button">-->
-			<input type="button" onclick="inputTimeInSeconds()" class="num_button" value="Проверка нулей" name="num_button">
-			<input type="button" onclick="timer()" class="num_button" value="Проверка функции" name="num_button">
-			<input type="button" onclick="setInterval()" class="num_button" value="Запуск таймера" name="num_button">
+				<input type="button" onclick="resetValue()" class="timer-button" value="Очистить" name="num_button">
+				<input type="button" onclick="startTimer()" class="timer-button" value="Запуск" name="num_button">
+			</div>
 		</div>
 
 		<footer class="footer">
