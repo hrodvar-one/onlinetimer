@@ -49,6 +49,7 @@ body .container .content .timer .timer_panel {
 }
 body .container .content .timer .timer_panel th {
   height: 50px;
+  font-size: 200%;
 }
 body .container .content .timer .timer_panel td {
   text-align: center;
@@ -61,7 +62,10 @@ body .container .content .timer .timer_panel td input {
   font-weight: bold;
 }
 body .container .content .button-panel {
-  text-align: center;
+  height: 75px;
+  position: relative;
+  margin-left: 250px;
+  /*text-align: center;*/
 }
 body .container .content .button-panel .start-button {
   background-color: #118811;
@@ -90,13 +94,29 @@ body .container .content .button-panel .reset-button:hover {
   background-color: #4D4D4D;
 }
 body .container .content .button-panel .pause-button {
-  display: none;
+  position: relative;
+  left: -224px;
+  visibility: hidden;
   background-color: chocolate;
   width: 220px;
   height: 75px;
   border: 5px black solid;
   border-radius: 10px;
   font-size: 40px;
+  font-weight: bold;
+  color: black;
+}
+body .container .content .button-panel .resume-button {
+  position: relative;
+  left: 223px;
+  top: -74px;
+  visibility: hidden;
+  background-color: #175eb7;
+  width: 220px;
+  height: 75px;
+  border: 5px black solid;
+  border-radius: 10px;
+  font-size: 27px;
   font-weight: bold;
   color: black;
 }

@@ -6,7 +6,7 @@ function copyValueTo(fromElem, toElemId) {
     elem.value = fromElem.value;
 }
 
-
+// Основная функция расчета таймера обратного отсчета
 function inputTimeInSeconds() {
     let hoursInSeconds = txHours.value * 3600;
     let minutesInSeconds = txMinutes.value * 60;
@@ -44,8 +44,23 @@ function inputTimeInSeconds() {
 let stopTimer = 1;
 
 function startTimer () {
+    let hoursInit = document.getElementById("txHours");
+    let minutesInit = document.getElementById("txMinutes");
+    let secondsInit = document.getElementById("txSeconds");
+
+    //Проверка того что пользователь ввёл время перед запуском таймера
+    if (hoursInit.value == 0 && minutesInit.value == 0 && secondsInit.value ==0) {
+        alert('Введите время');
+        return;
+    }
     stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
+    document.getElementById("start-button").style.visibility = 'hidden';
+    document.getElementById("pause-button").style.visibility = 'visible';
 }
+
+// function startTimer () {
+//     stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
+// }
 
 // Функция сброса значений цифрового счётчика до значения 00
 // и остановки таймера.
@@ -58,4 +73,12 @@ function resetValue() {
     let elemThree = document.getElementById("txSeconds");
     elemThree.value = "0";
     clearInterval(stopTimer);
+    document.getElementById("start-button").style.visibility = 'visible';
+    document.getElementById("pause-button").style.visibility = 'hidden';
+    document.getElementById("resume-button").style.visibility = 'hidden';
+}
+
+// Функция выполняющаяся при нажатии на кнопку Пауза
+function pauseTimer() {
+    document.getElementById("resume-button").style.visibility = 'visible';
 }

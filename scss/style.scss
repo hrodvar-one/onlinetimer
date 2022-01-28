@@ -56,6 +56,7 @@ body {
 
           th {
             height: 50px;
+            font-size: 200%;
           }
 
           td {
@@ -73,7 +74,10 @@ body {
       }
 
       .button-panel {
-        text-align: center;
+        height: 75px;
+        position: relative;
+        margin-left: 250px;
+        /*text-align: center;*/
 
         .start-button {
           background-color: #118811;
@@ -106,13 +110,30 @@ body {
         }
 
         .pause-button {
-          display: none;
+          position: relative;
+          left: -224px;
+          visibility:hidden;
           background-color: chocolate;
           width: 220px;
           height: 75px;
           border: 5px black solid;
           border-radius: 10px;
           font-size: 40px;
+          font-weight: bold;
+          color: black;
+        }
+
+        .resume-button {
+          position: relative;
+          left: 223px;
+          top: -74px;
+          visibility:hidden;
+          background-color: #175eb7;
+          width: 220px;
+          height: 75px;
+          border: 5px black solid;
+          border-radius: 10px;
+          font-size: 27px;
           font-weight: bold;
           color: black;
         }
