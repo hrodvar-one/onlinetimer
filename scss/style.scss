@@ -74,7 +74,7 @@ body {
       }
 
       .button-panel {
-        height: 75px;
+        height: 90px;
         position: relative;
         margin-left: 250px;
         /*text-align: center;*/
@@ -106,13 +106,13 @@ body {
         }
 
         .reset-button:hover {
-          background-color:  #4D4D4D;
+          background-color: #4D4D4D;
         }
 
         .pause-button {
           position: relative;
           left: -224px;
-          visibility:hidden;
+          visibility: hidden;
           background-color: chocolate;
           width: 220px;
           height: 75px;
@@ -127,7 +127,7 @@ body {
           position: relative;
           left: 223px;
           top: -74px;
-          visibility:hidden;
+          visibility: hidden;
           background-color: #175eb7;
           width: 220px;
           height: 75px;

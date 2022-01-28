@@ -62,7 +62,7 @@ body .container .content .timer .timer_panel td input {
   font-weight: bold;
 }
 body .container .content .button-panel {
-  height: 75px;
+  height: 90px;
   position: relative;
   margin-left: 250px;
   /*text-align: center;*/

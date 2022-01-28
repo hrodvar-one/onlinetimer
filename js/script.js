@@ -1,3 +1,4 @@
+
 // Функция копирования значения нажатой кнопки в
 // указанное поле ввода
 
@@ -42,8 +43,6 @@ function inputTimeInSeconds() {
 
 // Ввожу любую переменную и использую её для остановки setInterval
 let stopTimer = 1;
-// let stopTimerTwo = 2;
-// let stopTimerThree = 3;
 
 function startTimer () {
     let hoursInit = document.getElementById("txHours");
@@ -60,10 +59,6 @@ function startTimer () {
     document.getElementById("pause-button").style.visibility = 'visible';
 }
 
-// function startTimer () {
-//     stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
-// }
-
 // Функция сброса значений цифрового счётчика до значения 00
 // и остановки таймера.
 
@@ -78,6 +73,7 @@ function resetValue() {
     document.getElementById("start-button").style.visibility = 'visible';
     document.getElementById("pause-button").style.visibility = 'hidden';
     document.getElementById("resume-button").style.visibility = 'hidden';
+    return 1;
 }
 
 // Функция выполняющаяся при нажатии на кнопку Пауза
@@ -92,3 +88,4 @@ function resumeTimer() {
     document.getElementById("resume-button").style.visibility = 'hidden';
     document.getElementById("pause-button").style.visibility = 'visible';
 }
+
