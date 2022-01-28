@@ -42,6 +42,8 @@ function inputTimeInSeconds() {
 
 // Ввожу любую переменную и использую её для остановки setInterval
 let stopTimer = 1;
+// let stopTimerTwo = 2;
+// let stopTimerThree = 3;
 
 function startTimer () {
     let hoursInit = document.getElementById("txHours");
@@ -80,5 +82,13 @@ function resetValue() {
 
 // Функция выполняющаяся при нажатии на кнопку Пауза
 function pauseTimer() {
+    clearInterval(stopTimer);
     document.getElementById("resume-button").style.visibility = 'visible';
+}
+
+// Функция кнопки Продолжить
+function resumeTimer() {
+    stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
+    document.getElementById("resume-button").style.visibility = 'hidden';
+    document.getElementById("pause-button").style.visibility = 'visible';
 }
