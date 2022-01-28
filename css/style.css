@@ -73,15 +73,21 @@ body .container .content .button-panel .start-button {
   font-weight: bold;
   color: black;
 }
+body .container .content .button-panel .start-button:hover {
+  background-color: #1FBC1F;
+}
 body .container .content .button-panel .reset-button {
-  background-color: gray;
+  background-color: #333333;
   width: 220px;
   height: 75px;
   border: 5px black solid;
   border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
-  color: black;
+  color: #b6b6b6;
+}
+body .container .content .button-panel .reset-button:hover {
+  background-color: #4D4D4D;
 }
 body .container .content .button-panel .pause-button {
   display: none;
