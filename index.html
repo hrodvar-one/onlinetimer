@@ -67,18 +67,10 @@
 			<div class="fast-timer-panel">
 				<h2>Панель быстрого выбора таймера</h2>
 				<div class="fast-timer-button">
-					<button type="button" onclick="copyValueToMinutes()" class="fast-button" id="fast" value="40">
-						40 минут
-					</button>
-					<input type="button" class="fast-button" id="fast-timer-button-two" value="25 минут" name="num_button">
-					<input type="button" class="fast-button" id="fast-timer-button-three" value="15 минут" name="num_button">
-					<input type="button" class="fast-button" id="fast-timer-button-four" value="5 минут" name="num_button">
-				</div>
-				<div class="fast-timer-button">
-					<input type="button" class="fast-button" id="fast-timer-button-one" value="40 минут" name="num_button">
-					<input type="button" class="fast-button" id="fast-timer-button-two" value="25 минут" name="num_button">
-					<input type="button" class="fast-button" id="fast-timer-button-three" value="15 минут" name="num_button">
-					<input type="button" class="fast-button" id="fast-timer-button-four" value="5 минут" name="num_button">
+					<button type="button" onclick="resetTimer(40)" class="fast-button" value="40">40 минут</button>
+					<button type="button" onclick="resetTimer(25)" class="fast-button" value="25">25 минут</button>
+					<button type="button" onclick="resetTimer(15)" class="fast-button" value="15">15 минут</button>
+					<button type="button" onclick="resetTimer(5)" class="fast-button" value="5">5 минут</button>
 				</div>
 			</div>
 		</div>

@@ -8,8 +8,9 @@ function copyValueTo(fromElem, toElemId) {
 
 // Функция копирования значения нажатой кнопки в
 // указанное поле ввода
-function copyValueToMinutes() {
-    document.getElementById("txMinutes").value = document.getElementById("fast").value;
+function copyValueToMinutes(fromElem) {
+    let elem = document.getElementById("txMinutes");
+    elem.value = fromElem;
 }
 
 // Основная функция расчета таймера обратного отсчета
@@ -94,3 +95,9 @@ function resumeTimer() {
     document.getElementById("pause-button").style.visibility = 'visible';
 }
 
+// Функция установки времени быстро таймера с одновременным
+// сбросом таймера
+function resetTimer(fromElem) {
+    resetValue();
+    copyValueToMinutes(fromElem);
+}
