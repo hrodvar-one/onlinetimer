@@ -9,7 +9,6 @@ body .container {
   width: 950px;
   margin: auto;
   display: block;
-  background-color: blue;
   border: 3px solid #1c1c1c;
 }
 body .container .header {
@@ -157,6 +156,30 @@ body .container .content .fast-timer-panel .fast-timer-button .fast-button {
 }
 body .container .content .fast-timer-panel .fast-timer-button .fast-button:hover {
   background-color: #ffac44;
+}
+body .container .content .audio-setting-panel {
+  background-color: #232323;
+}
+body .container .content .audio-setting-panel h2 {
+  margin: 0;
+  padding: 10px 20px;
+  color: #e7e4e4;
+  background-color: black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+body .container .content .audio-setting-panel .audio-setting-button {
+  text-align: center;
+}
+body .container .content .audio-setting-panel .audio-setting-button .audio-button {
+  height: 90px;
+  width: 100px;
+  margin: 40px;
+  background-color: green;
+  border: 4px black solid;
+  border-radius: 10px;
+  font-size: 27px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

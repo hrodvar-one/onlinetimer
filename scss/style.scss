@@ -10,7 +10,7 @@ body {
     width: 950px;
     margin: auto; // Равный отступ от краёв
     display: block;
-    background-color: blue;
+    //background-color: blue;
     border: 3px solid #1c1c1c;
 
     .header {
@@ -181,6 +181,34 @@ body {
 
           .fast-button:hover {
             background-color: #ffac44;
+          }
+        }
+      }
+
+      .audio-setting-panel {
+        background-color: #232323;
+
+        h2 {
+          margin: 0;
+          padding: 10px 20px;
+          color: #e7e4e4;
+          background-color: black;
+          border-top: 2px solid black;
+          border-bottom: 2px solid black;
+        }
+
+        .audio-setting-button {
+          text-align: center;
+
+          .audio-button {
+            height: 90px;
+            width: 100px;
+            margin: 40px;
+            background-color: green;
+            border: 4px black solid;
+            border-radius: 10px;
+            font-size: 27px;
+            font-weight: bold;
           }
         }
       }

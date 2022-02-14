@@ -101,3 +101,8 @@ function resetTimer(fromElem) {
     resetValue();
     copyValueToMinutes(fromElem);
 }
+
+// Функция аудиоплеер
+function audioPlayer() {
+
+}
