@@ -81,6 +81,7 @@ body {
       .button-panel {
         height: 90px;
         position: relative;
+        margin-top: 20px;
         margin-left: 250px;
         margin-bottom: 30px;
         /*text-align: center;*/
@@ -129,6 +130,10 @@ body {
           color: black;
         }
 
+        .pause-button:hover {
+          background-color: #ee7f31;
+        }
+
         .resume-button {
           position: relative;
           left: 223px;
@@ -142,6 +147,10 @@ body {
           font-size: 27px;
           font-weight: bold;
           color: black;
+        }
+
+        .resume-button:hover {
+          background-color: #2C89CB;
         }
       }
       .fast-timer-panel {
@@ -160,10 +169,13 @@ body {
           margin-left: 40px;
 
           .fast-button {
-            height: 50px;
-            margin-top: 40px;
-            margin-right: 20px;
-            margin-bottom: 40px;
+            height: 70px;
+            margin: 40px;
+            background-color: gray;
+            border: 4px black solid;
+            border-radius: 10px;
+            font-size: 27px;
+            font-weight: bold;
           }
         }
       }

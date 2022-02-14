@@ -68,6 +68,7 @@ body .container .content .timer .timer_panel td input {
 body .container .content .button-panel {
   height: 90px;
   position: relative;
+  margin-top: 20px;
   margin-left: 250px;
   margin-bottom: 30px;
   /*text-align: center;*/
@@ -111,6 +112,9 @@ body .container .content .button-panel .pause-button {
   font-weight: bold;
   color: black;
 }
+body .container .content .button-panel .pause-button:hover {
+  background-color: #ee7f31;
+}
 body .container .content .button-panel .resume-button {
   position: relative;
   left: 223px;
@@ -124,6 +128,9 @@ body .container .content .button-panel .resume-button {
   font-size: 27px;
   font-weight: bold;
   color: black;
+}
+body .container .content .button-panel .resume-button:hover {
+  background-color: #2C89CB;
 }
 body .container .content .fast-timer-panel {
   background-color: #3f7dc5;
@@ -140,10 +147,13 @@ body .container .content .fast-timer-panel .fast-timer-button {
   margin-left: 40px;
 }
 body .container .content .fast-timer-panel .fast-timer-button .fast-button {
-  height: 50px;
-  margin-top: 40px;
-  margin-right: 20px;
-  margin-bottom: 40px;
+  height: 70px;
+  margin: 40px;
+  background-color: gray;
+  border: 4px black solid;
+  border-radius: 10px;
+  font-size: 27px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
