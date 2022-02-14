@@ -102,7 +102,9 @@ function resetTimer(fromElem) {
     copyValueToMinutes(fromElem);
 }
 
-// Функция аудиоплеер
-function audioPlayer() {
-
+// Функция звук срабатывания таймера
+function sound() {
+    let audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = "./sounds/alarm.mp3"; // Указываем путь к звуку "клика"
+    audio.autoplay = true; // Автоматически запускаем
 }
