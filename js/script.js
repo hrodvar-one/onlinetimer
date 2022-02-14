@@ -1,10 +1,15 @@
 
 // Функция копирования значения нажатой кнопки в
 // указанное поле ввода
-
 function copyValueTo(fromElem, toElemId) {
     let elem = document.getElementById(toElemId);
     elem.value = fromElem.value;
+}
+
+// Функция копирования значения нажатой кнопки в
+// указанное поле ввода
+function copyValueToMinutes() {
+    document.getElementById("txMinutes").value = document.getElementById("fast").value;
 }
 
 // Основная функция расчета таймера обратного отсчета

@@ -147,13 +147,16 @@ body .container .content .fast-timer-panel .fast-timer-button {
   margin-left: 40px;
 }
 body .container .content .fast-timer-panel .fast-timer-button .fast-button {
-  height: 70px;
+  height: 90px;
   margin: 40px;
-  background-color: gray;
+  background-color: darkorange;
   border: 4px black solid;
   border-radius: 10px;
   font-size: 27px;
   font-weight: bold;
+}
+body .container .content .fast-timer-panel .fast-timer-button .fast-button:hover {
+  background-color: #ffac44;
 }
 
 /*# sourceMappingURL=style.css.map */
