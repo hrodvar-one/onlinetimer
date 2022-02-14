@@ -3,27 +3,29 @@ body {
   padding: 0;
   color: #555;
   font: normal 10pt Arial, Helvetica, sans-serif;
-  background: #EFEFEF;
+  background: #ababab;
 }
 body .container {
   width: 950px;
   margin: auto;
   display: block;
   background-color: blue;
+  border: 3px solid #1c1c1c;
 }
 body .container .header {
   margin: 0;
   padding: 0;
-  border-top: 3px solid #C9E0ED;
-  background-color: white;
+  background-color: #ddeaef;
 }
 body .container .header h1 {
   margin: 0;
   padding: 10px 20px;
+  border-bottom: 2px solid black;
   font-size: 200%;
 }
 body .container .nav {
-  background-color: cornflowerblue;
+  background-color: #e52626;
+  border-bottom: 2px solid black;
 }
 body .container .nav ul {
   padding: 6px 20px 5px 20px;
@@ -55,23 +57,26 @@ body .container .content .timer .timer_panel td {
   text-align: center;
 }
 body .container .content .timer .timer_panel td input {
+  background-color: gray;
   height: 223px;
   width: 223px;
   text-align: center;
   font-size: 200px;
   font-weight: bold;
+  border: 3px solid black;
 }
 body .container .content .button-panel {
   height: 90px;
   position: relative;
   margin-left: 250px;
+  margin-bottom: 30px;
   /*text-align: center;*/
 }
 body .container .content .button-panel .start-button {
   background-color: #118811;
   width: 220px;
   height: 75px;
-  border: 5px black solid;
+  border: 4px black solid;
   border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
@@ -84,7 +89,7 @@ body .container .content .button-panel .reset-button {
   background-color: #333333;
   width: 220px;
   height: 75px;
-  border: 5px black solid;
+  border: 4px black solid;
   border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
@@ -100,7 +105,7 @@ body .container .content .button-panel .pause-button {
   background-color: chocolate;
   width: 220px;
   height: 75px;
-  border: 5px black solid;
+  border: 4px black solid;
   border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
@@ -114,11 +119,31 @@ body .container .content .button-panel .resume-button {
   background-color: #175eb7;
   width: 220px;
   height: 75px;
-  border: 5px black solid;
+  border: 4px black solid;
   border-radius: 10px;
   font-size: 27px;
   font-weight: bold;
   color: black;
+}
+body .container .content .fast-timer-panel {
+  background-color: #3f7dc5;
+}
+body .container .content .fast-timer-panel h2 {
+  margin: 0;
+  padding: 10px 20px;
+  color: #e7e4e4;
+  background-color: #0f5cb9;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+body .container .content .fast-timer-panel .fast-timer-button {
+  margin-left: 40px;
+}
+body .container .content .fast-timer-panel .fast-timer-button .fast-button {
+  height: 50px;
+  margin-top: 40px;
+  margin-right: 20px;
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

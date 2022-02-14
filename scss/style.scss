@@ -4,29 +4,32 @@ body {
   padding: 0;
   color: #555;
   font: normal 10pt Arial,Helvetica,sans-serif;
-  background: #EFEFEF;
+  background: #ababab;
 
   .container {
     width: 950px;
     margin: auto; // Равный отступ от краёв
     display: block;
     background-color: blue;
+    border: 3px solid #1c1c1c;
 
     .header {
       margin: 0;
       padding: 0;
-      border-top: 3px solid #C9E0ED;
-      background-color: white;
+      //border-top: 3px solid #C9E0ED;
+      background-color: #ddeaef;
 
       h1 {
         margin: 0;
         padding: 10px 20px;
+        border-bottom: 2px solid black;
         font-size: 200%;
       }
     }
 
     .nav {
-      background-color: cornflowerblue;
+      background-color: #e52626;
+      border-bottom: 2px solid black;
 
       ul {
         padding: 6px 20px 5px 20px;
@@ -63,11 +66,13 @@ body {
             text-align: center;
 
             input {
+              background-color: gray;
               height: 223px;
               width: 223px;
               text-align: center;
               font-size: 200px;
               font-weight: bold;
+              border: 3px solid black;
             }
           }
         }
@@ -77,13 +82,14 @@ body {
         height: 90px;
         position: relative;
         margin-left: 250px;
+        margin-bottom: 30px;
         /*text-align: center;*/
 
         .start-button {
           background-color: #118811;
           width: 220px;
           height: 75px;
-          border: 5px black solid;
+          border: 4px black solid;
           border-radius: 10px;
           font-size: 40px;
           font-weight: bold;
@@ -98,7 +104,7 @@ body {
           background-color: #333333;
           width: 220px;
           height: 75px;
-          border: 5px black solid;
+          border: 4px black solid;
           border-radius: 10px;
           font-size: 40px;
           font-weight: bold;
@@ -116,7 +122,7 @@ body {
           background-color: chocolate;
           width: 220px;
           height: 75px;
-          border: 5px black solid;
+          border: 4px black solid;
           border-radius: 10px;
           font-size: 40px;
           font-weight: bold;
@@ -131,11 +137,34 @@ body {
           background-color: #175eb7;
           width: 220px;
           height: 75px;
-          border: 5px black solid;
+          border: 4px black solid;
           border-radius: 10px;
           font-size: 27px;
           font-weight: bold;
           color: black;
+        }
+      }
+      .fast-timer-panel {
+        background-color: #3f7dc5;
+
+        h2 {
+          margin: 0;
+          padding: 10px 20px;
+          color: #e7e4e4;
+          background-color: #0f5cb9;
+          border-top: 2px solid black;
+          border-bottom: 2px solid black;
+        }
+
+        .fast-timer-button {
+          margin-left: 40px;
+
+          .fast-button {
+            height: 50px;
+            margin-top: 40px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+          }
         }
       }
     }
