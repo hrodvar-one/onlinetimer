@@ -37,13 +37,19 @@ function inputTimeInSeconds() {
     document.getElementById("txSeconds").value = seconds;
     // Если значения в ячейках времени равны нулю,то есть таймер
     // дошёл до конца, то останавливаем таймер
-    if (hoursInSeconds == 0 && minutesInSeconds == 0 && seconds == 0) {
-        clearInterval(stopTimer);
-        // Функция задержки вывода сообщения об окончании времени
-        function exitMessage() {
-            alert('Время вышло');
+    if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
+        resetValue();
+        // clearInterval(stopTimer);
+        if (document.getElementById("audio-button").value === 'ON') {
+            sound()
         }
-        setTimeout(exitMessage, 1000);
+        // // Функция задержки вывода сообщения об окончании времени
+        // function exitMessage() {
+        //     sound();
+        //     // alert('Время вышло');
+        // }
+
+        // setTimeout(exitMessage, 1000);
     }
 }
 
@@ -56,7 +62,7 @@ function startTimer () {
     let secondsInit = document.getElementById("txSeconds");
 
     //Проверка того что пользователь ввёл время перед запуском таймера
-    if (hoursInit.value == 0 && minutesInit.value == 0 && secondsInit.value ==0) {
+    if (hoursInit.value == 0 && minutesInit.value == 0 && secondsInit.value == 0) {
         alert('Введите время');
         return;
     }
@@ -102,9 +108,24 @@ function resetTimer(fromElem) {
     copyValueToMinutes(fromElem);
 }
 
-// Функция звук срабатывания таймера
+// Функция воспроизведения звука срабатывания таймера
 function sound() {
     let audio = new Audio(); // Создаём новый элемент Audio
     audio.src = "./sounds/alarm.mp3"; // Указываем путь к звуку "клика"
     audio.autoplay = true; // Автоматически запускаем
+}
+
+//Функция включения(выключения) звука таймера
+function onOffAudio() {
+    if (document.getElementById("audio-button").value == 'ON') {
+        let audioButton = document.getElementById("audio-button")
+        audioButton.classList.remove('audio-button-on', 'audio-button-off');
+        audioButton.classList.add('audio-button-off');
+        document.getElementById("audio-button").value = 'OFF';
+    } else if (document.getElementById("audio-button").value == 'OFF') {
+        let audioButton = document.getElementById("audio-button")
+        audioButton.classList.remove('audio-button-off', 'audio-button-on');
+        audioButton.classList.add('audio-button-on');
+        document.getElementById("audio-button").value = 'ON';
+    }
 }

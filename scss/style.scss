@@ -4,7 +4,7 @@ body {
   padding: 0;
   color: #555;
   font: normal 10pt Arial,Helvetica,sans-serif;
-  background: #ababab;
+  background: #afaeae;
 
   .container {
     width: 950px;
@@ -58,6 +58,7 @@ body {
           width: 100%;
 
           th {
+            color: #4b4b4b;
             height: 50px;
             font-size: 200%;
           }
@@ -136,8 +137,8 @@ body {
 
         .resume-button {
           position: relative;
-          left: 223px;
-          top: -74px;
+          left: 224px;
+          top: -75px;
           visibility: hidden;
           background-color: #175eb7;
           width: 220px;
@@ -154,13 +155,16 @@ body {
         }
       }
       .fast-timer-panel {
-        background-color: #3f7dc5;
+        //background-color: #3f7dc5;
+        background-color: #ababab;
 
         h2 {
           margin: 0;
           padding: 10px 20px;
-          color: #e7e4e4;
-          background-color: #0f5cb9;
+          color: #262626;
+          //color: #e7e4e4;
+          //background-color: #0f5cb9;
+          background-color: #808080;
           border-top: 2px solid black;
           border-bottom: 2px solid black;
         }
@@ -186,13 +190,14 @@ body {
       }
 
       .audio-setting-panel {
-        background-color: #232323;
+        background-color: #ababab;
+        //background-color: #232323;
 
         h2 {
           margin: 0;
           padding: 10px 20px;
-          color: #e7e4e4;
-          background-color: black;
+          color: #262626;
+          background-color: #808080;
           border-top: 2px solid black;
           border-bottom: 2px solid black;
         }
@@ -200,15 +205,40 @@ body {
         .audio-setting-button {
           text-align: center;
 
-          .audio-button {
+          .audio-button-on {
             height: 90px;
             width: 100px;
-            margin: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            //margin: 40px;
             background-color: green;
+            //background-color: green;
             border: 4px black solid;
             border-radius: 10px;
             font-size: 27px;
             font-weight: bold;
+          }
+
+          .audio-button-on:hover {
+            background-color: #1FBC1F;
+          }
+
+          .audio-button-off {
+            height: 90px;
+            width: 100px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            //margin: 40px;
+            background-color: red;
+            //background-color: green;
+            border: 4px black solid;
+            border-radius: 10px;
+            font-size: 27px;
+            font-weight: bold;
+          }
+
+          .audio-button-off:hover {
+            background-color: #fd4a4a;
           }
         }
       }

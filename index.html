@@ -12,19 +12,19 @@
 			<h1>Таймер обратного отcчёта онлайн</h1>
 		</header>
 
-		<nav class="nav">
-			<ul>
-				<li>
-					<a href="#/">Главная страница</a>
-				</li>
-				<li>
-					<a href="#/">Информация по дате</a>
-				</li>
-				<li>
-					<a href="#/">Контакты</a>
-				</li>
-			</ul>
-		</nav>
+<!--		<nav class="nav">-->
+<!--			<ul>-->
+<!--				<li>-->
+<!--					<a href="#/">Главная страница</a>-->
+<!--				</li>-->
+<!--				<li>-->
+<!--					<a href="#/">Информация по дате</a>-->
+<!--				</li>-->
+<!--				<li>-->
+<!--					<a href="#/">Контакты</a>-->
+<!--				</li>-->
+<!--			</ul>-->
+<!--		</nav>-->
 
 		<div class="content">
 			<div class="timer">
@@ -71,9 +71,9 @@
 				</div>
 			</div>
 			<div class="audio-setting-panel">
-				<h2>Панель звука</h2>
+				<h2>Панель управления звуком срабатывания таймера (по-умолчанию звук включен)</h2>
 				<div class="audio-setting-button">
-					<button type="button" onclick="sound()" class="audio-button" value="1">ON</button>
+					<input type="button" onclick="onOffAudio()" id="audio-button" class="audio-button-on" value="ON">
 				</div>
 			</div>
 		</div>
