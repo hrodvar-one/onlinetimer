@@ -1,3 +1,6 @@
+// Инициализация переменной для того, чтобы звук
+// воспроизводился даже если вкладка таймера не активна
+let audio = new Audio();
 
 // Функция копирования значения нажатой кнопки в
 // указанное поле ввода
@@ -85,6 +88,7 @@ function resetValue() {
     document.getElementById("start-button").style.visibility = 'visible';
     document.getElementById("pause-button").style.visibility = 'hidden';
     document.getElementById("resume-button").style.visibility = 'hidden';
+    audio.pause();
     return 1;
 }
 
@@ -110,7 +114,7 @@ function resetTimer(fromElem) {
 
 // Функция воспроизведения звука срабатывания таймера
 function sound() {
-    let audio = new Audio(); // Создаём новый элемент Audio
+    // let audio = new Audio(); // Создаём новый элемент Audio
     audio.src = "./sounds/alarm.mp3"; // Указываем путь к звуку "клика"
     audio.autoplay = true; // Автоматически запускаем
 }
