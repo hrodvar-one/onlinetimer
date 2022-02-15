@@ -42,7 +42,7 @@ function inputTimeInSeconds() {
     // дошёл до конца, то останавливаем таймер
     if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
         resetValue();
-        one();
+        changeColor();
         // clearInterval(stopTimer);
         if (document.getElementById("audio-button").value === 'ON') {
             sound()
@@ -135,4 +135,13 @@ function onOffAudio() {
     }
 }
 
+// Функция мигания фона body
+function changeColor() {
+    if (document.getElementById("body").style.background === '#afaeae') {
+        document.getElementById("body").style.background = 'red';
+    } else {
+        document.getElementById("body").style.background = '#afaeae';
+    }
+    setTimeout(changeColor, 500);
+}
 
