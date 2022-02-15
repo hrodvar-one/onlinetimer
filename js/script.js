@@ -42,6 +42,7 @@ function inputTimeInSeconds() {
     // дошёл до конца, то останавливаем таймер
     if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
         resetValue();
+        one();
         // clearInterval(stopTimer);
         if (document.getElementById("audio-button").value === 'ON') {
             sound()
@@ -133,3 +134,5 @@ function onOffAudio() {
         document.getElementById("audio-button").value = 'ON';
     }
 }
+
+
