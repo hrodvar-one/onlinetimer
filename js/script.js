@@ -46,7 +46,7 @@ function inputTimeInSeconds() {
     if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
         resetValue();
         // Запуск интервала функции смены фона
-        setInterval(changeColor, 1000);
+        stopTimerTwo = setInterval(changeColor, 1000);
         // clearInterval(stopTimer);
         if (document.getElementById("audio-button").value === 'ON') {
             sound()
