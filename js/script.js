@@ -16,6 +16,9 @@ function copyValueToMinutes(fromElem) {
     elem.value = fromElem;
 }
 
+//  Ввожу любую переменную и использую её для остановки setInterval
+let stopTimerTwo = 2;
+
 // Основная функция расчета таймера обратного отсчета
 function inputTimeInSeconds() {
     let hoursInSeconds = txHours.value * 3600;
@@ -42,7 +45,8 @@ function inputTimeInSeconds() {
     // дошёл до конца, то останавливаем таймер
     if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
         resetValue();
-        changeColor();
+        // Запуск интервала функции смены фона
+        setInterval(changeColor, 1000);
         // clearInterval(stopTimer);
         if (document.getElementById("audio-button").value === 'ON') {
             sound()
@@ -85,7 +89,10 @@ function resetValue() {
     elemTwo.value = "0";
     let elemThree = document.getElementById("txSeconds");
     elemThree.value = "0";
+    // Остановка основного таймера отсчёта времени
     clearInterval(stopTimer);
+    // Остановка таймера моргания цвета фона
+    clearInterval(stopTimerTwo);
     document.getElementById("start-button").style.visibility = 'visible';
     document.getElementById("pause-button").style.visibility = 'hidden';
     document.getElementById("resume-button").style.visibility = 'hidden';
@@ -135,13 +142,16 @@ function onOffAudio() {
     }
 }
 
-// Функция мигания фона body
-function changeColor() {
-    if (document.getElementById("body").style.background === '#afaeae') {
-        document.getElementById("body").style.background = 'red';
-    } else {
-        document.getElementById("body").style.background = '#afaeae';
-    }
-    setTimeout(changeColor, 500);
+// Функция добавления класса body
+function addClass() {
+    document.body.classList.add("body");
 }
+
+// Функция изменения фона body путём удаления и добавления
+// соответствующего класса
+function changeColor() {
+    document.body.classList.remove("body");
+    setTimeout(addClass, 500);
+}
+
 
