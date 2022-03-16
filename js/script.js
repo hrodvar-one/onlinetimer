@@ -150,17 +150,8 @@ function addClass() {
 // Функция изменения фона body путём удаления и добавления
 // соответствующего класса
 function changeColor() {
-<<<<<<< HEAD
-    if (document.getElementById("body").style.background === '#afaeae') {
-        document.getElementById("body").style.background = '#ff0000';
-    } else {
-        document.getElementById("body").style.background = '#afaeae';
-    }
-    setTimeout(changeColor, 500);
-=======
     document.body.classList.remove("body");
     setTimeout(addClass, 500);
->>>>>>> 36623dd6b2c27ad3a10efd0b1df7d19d63e690be
 }
 
 
