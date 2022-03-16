@@ -57,6 +57,7 @@ body {
 
         .timer_panel {
           width: 100%;
+          //cursor: text;
 
           th {
             color: #4b4b4b;
@@ -68,7 +69,7 @@ body {
             text-align: center;
 
             input {
-              background-color: gray;
+              background-color: #a09f9f;
               height: 223px;
               width: 223px;
               text-align: center;

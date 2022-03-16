@@ -57,7 +57,7 @@ body .container .content .timer .timer_panel td {
   text-align: center;
 }
 body .container .content .timer .timer_panel td input {
-  background-color: gray;
+  background-color: #a09f9f;
   height: 223px;
   width: 223px;
   text-align: center;
