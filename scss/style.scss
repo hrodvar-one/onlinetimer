@@ -4,8 +4,8 @@ body {
   padding: 0;
   color: #555;
   font: normal 10pt Arial,Helvetica,sans-serif;
-  background: #afaeae;
-  //background: red;
+  //background: #afaeae;
+  background: red;
 
   .container {
     width: 950px;
@@ -245,4 +245,9 @@ body {
       }
     }
   }
+}
+// Этот класс нужен для работы функции смены цвета фона
+// при окончании таймера
+.body {
+  background: #afaeae;
 }

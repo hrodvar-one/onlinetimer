@@ -3,7 +3,7 @@ body {
   padding: 0;
   color: #555;
   font: normal 10pt Arial, Helvetica, sans-serif;
-  background: #afaeae;
+  background: red;
 }
 body .container {
   width: 950px;
@@ -199,6 +199,10 @@ body .container .content .audio-setting-panel .audio-setting-button .audio-butto
 }
 body .container .content .audio-setting-panel .audio-setting-button .audio-button-off:hover {
   background-color: #fd4a4a;
+}
+
+.body {
+  background: #afaeae;
 }
 
 /*# sourceMappingURL=style.css.map */
