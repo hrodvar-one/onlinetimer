@@ -138,7 +138,7 @@ function onOffAudio() {
 // Функция мигания фона body
 function changeColor() {
     if (document.getElementById("body").style.background === '#afaeae') {
-        document.getElementById("body").style.background = 'red';
+        document.getElementById("body").style.background = '#ff0000';
     } else {
         document.getElementById("body").style.background = '#afaeae';
     }
