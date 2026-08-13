@@ -1,157 +1,177 @@
-// Инициализация переменной для того, чтобы звук
-// воспроизводился даже если вкладка таймера не активна
-let audio = new Audio();
+// Звуковой элемент создаётся один раз, чтобы браузер мог разрешить его
+// воспроизведение после пользовательского нажатия на кнопку «Запуск».
+const audio = new Audio("./sounds/alarm.mp3");
+audio.preload = "auto";
 
-// Функция копирования значения нажатой кнопки в
-// указанное поле ввода
+let timerId = null;
+let flashTimerId = null;
+let endTime = 0;
+let remainingMilliseconds = 0;
+let isRunning = false;
+let originalTitle = document.title;
+
 function copyValueTo(fromElem, toElemId) {
-    let elem = document.getElementById(toElemId);
-    elem.value = fromElem.value;
+    document.getElementById(toElemId).value = fromElem.value;
 }
 
-// Функция копирования значения нажатой кнопки в
-// указанное поле ввода
-function copyValueToMinutes(fromElem) {
-    let elem = document.getElementById("txMinutes");
-    elem.value = fromElem;
+function copyValueToMinutes(value) {
+    document.getElementById("txMinutes").value = value;
 }
 
-//  Ввожу любую переменную и использую её для остановки setInterval
-let stopTimerTwo = 2;
+function getEnteredMilliseconds() {
+    const hours = Number(document.getElementById("txHours").value) || 0;
+    const minutes = Number(document.getElementById("txMinutes").value) || 0;
+    const seconds = Number(document.getElementById("txSeconds").value) || 0;
+    return Math.max(0, (hours * 3600 + minutes * 60 + seconds) * 1000);
+}
 
-// Основная функция расчета таймера обратного отсчета
-function inputTimeInSeconds() {
-    let hoursInSeconds = txHours.value * 3600;
-    let minutesInSeconds = txMinutes.value * 60;
-    let seconds = txSeconds.value * 1;
-    // alert(hoursInSeconds);
-    // alert(minutesInSeconds);
-    // alert(seconds);
-    let summTimeInSeconds = hoursInSeconds + minutesInSeconds + seconds;
-    // alert(summTimeInSeconds);
-    //вычитаю единицу из самого значения
-    summTimeInSeconds--;
-    // alert(summTimeInSeconds);
-    hoursInSeconds = Math.trunc(summTimeInSeconds / 3600);
-    minutesInSeconds = Math.trunc((summTimeInSeconds / 60) - (hoursInSeconds * 60));
-    seconds = Math.trunc(summTimeInSeconds - (minutesInSeconds * 60) - (hoursInSeconds * 3600));
-    // alert(hoursInSeconds);
-    // alert(minutesInSeconds);
-    // alert(seconds);
-    document.getElementById("txHours").value = hoursInSeconds;
-    document.getElementById("txMinutes").value = minutesInSeconds;
+function showTime(milliseconds) {
+    const totalSeconds = Math.max(0, Math.ceil(milliseconds / 1000));
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("txHours").value = hours;
+    document.getElementById("txMinutes").value = minutes;
     document.getElementById("txSeconds").value = seconds;
-    // Если значения в ячейках времени равны нулю,то есть таймер
-    // дошёл до конца, то останавливаем таймер
-    if (hoursInSeconds === 0 && minutesInSeconds === 0 && seconds === 0) {
-        resetValue();
-        // Запуск интервала функции смены фона
-        stopTimerTwo = setInterval(changeColor, 1000);
-        // clearInterval(stopTimer);
-        if (document.getElementById("audio-button").value === 'ON') {
-            sound()
-        }
-        // // Функция задержки вывода сообщения об окончании времени
-        // function exitMessage() {
-        //     sound();
-        //     // alert('Время вышло');
-        // }
+}
 
-        // setTimeout(exitMessage, 1000);
+// Отсчёт основан на абсолютном времени окончания. Даже если браузер замедлит
+// setInterval в фоновой вкладке, после следующего вызова будет показано верное время.
+function updateTimer() {
+    remainingMilliseconds = Math.max(0, endTime - Date.now());
+    showTime(remainingMilliseconds);
+
+    if (remainingMilliseconds === 0) {
+        finishTimer();
     }
 }
 
-// Ввожу любую переменную и использую её для остановки setInterval
-let stopTimer = 1;
+function requestNotificationPermission() {
+    if ("Notification" in window && Notification.permission === "default") {
+        Notification.requestPermission();
+    }
+}
 
-function startTimer () {
-    let hoursInit = document.getElementById("txHours");
-    let minutesInit = document.getElementById("txMinutes");
-    let secondsInit = document.getElementById("txSeconds");
+function unlockAudio() {
+    audio.muted = true;
+    const playPromise = audio.play();
+    if (playPromise) {
+        playPromise.then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.muted = false;
+        }).catch(() => {
+            audio.muted = false;
+        });
+    }
+}
 
-    //Проверка того что пользователь ввёл время перед запуском таймера
-    if (hoursInit.value == 0 && minutesInit.value == 0 && secondsInit.value == 0) {
-        alert('Введите время');
+function startTimer() {
+    remainingMilliseconds = getEnteredMilliseconds();
+    if (remainingMilliseconds === 0) {
+        alert("Введите время");
         return;
     }
-    stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
-    document.getElementById("start-button").style.visibility = 'hidden';
-    document.getElementById("pause-button").style.visibility = 'visible';
+
+    requestNotificationPermission();
+    unlockAudio();
+    stopAlarm();
+    endTime = Date.now() + remainingMilliseconds;
+    isRunning = true;
+    clearInterval(timerId);
+    timerId = setInterval(updateTimer, 250);
+    updateButtons("running");
 }
 
-// Функция сброса значений цифрового счётчика до значения 00
-// и остановки таймера.
+function pauseTimer() {
+    if (!isRunning) return;
+    remainingMilliseconds = Math.max(0, endTime - Date.now());
+    isRunning = false;
+    clearInterval(timerId);
+    showTime(remainingMilliseconds);
+    updateButtons("paused");
+}
+
+function resumeTimer() {
+    if (remainingMilliseconds <= 0) return;
+    endTime = Date.now() + remainingMilliseconds;
+    isRunning = true;
+    clearInterval(timerId);
+    timerId = setInterval(updateTimer, 250);
+    updateButtons("running");
+}
+
+function finishTimer() {
+    clearInterval(timerId);
+    isRunning = false;
+    showTime(0);
+    updateButtons("stopped");
+    flashTimerId = setInterval(changeColor, 1000);
+
+    if (document.getElementById("audio-button").value === "ON") {
+        sound();
+    }
+
+    if ("Notification" in window && Notification.permission === "granted") {
+        new Notification("Онлайн-таймер", {
+            body: "Время вышло!",
+            icon: "./img.png"
+        });
+    }
+
+    document.title = "⏰ Время вышло!";
+}
 
 function resetValue() {
-    let elem = document.getElementById("txHours");
-    elem.value = "0";
-    let elemTwo = document.getElementById("txMinutes");
-    elemTwo.value = "0";
-    let elemThree = document.getElementById("txSeconds");
-    elemThree.value = "0";
-    // Остановка основного таймера отсчёта времени
-    clearInterval(stopTimer);
-    // Остановка таймера моргания цвета фона
-    clearInterval(stopTimerTwo);
-    document.getElementById("start-button").style.visibility = 'visible';
-    document.getElementById("pause-button").style.visibility = 'hidden';
-    document.getElementById("resume-button").style.visibility = 'hidden';
+    clearInterval(timerId);
+    isRunning = false;
+    remainingMilliseconds = 0;
+    showTime(0);
+    stopAlarm();
+    updateButtons("stopped");
+}
+
+function stopAlarm() {
+    clearInterval(flashTimerId);
+    document.body.classList.add("body");
+    document.title = originalTitle;
     audio.pause();
-    return 1;
+    audio.currentTime = 0;
 }
 
-// Функция выполняющаяся при нажатии на кнопку Пауза
-function pauseTimer() {
-    clearInterval(stopTimer);
-    document.getElementById("resume-button").style.visibility = 'visible';
-}
-
-// Функция кнопки Продолжить
-function resumeTimer() {
-    stopTimer = setInterval(function () { inputTimeInSeconds(); }, 1000);
-    document.getElementById("resume-button").style.visibility = 'hidden';
-    document.getElementById("pause-button").style.visibility = 'visible';
-}
-
-// Функция установки времени быстро таймера с одновременным
-// сбросом таймера
-function resetTimer(fromElem) {
+function resetTimer(value) {
     resetValue();
-    copyValueToMinutes(fromElem);
+    copyValueToMinutes(value);
 }
 
-// Функция воспроизведения звука срабатывания таймера
 function sound() {
-    // let audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = "./sounds/alarm.mp3"; // Указываем путь к звуку "клика"
-    audio.autoplay = true; // Автоматически запускаем
+    audio.muted = false;
+    audio.currentTime = 0;
+    audio.play().catch(() => {
+        // Если браузер всё же заблокировал звук, уведомление останется доступно.
+    });
 }
 
-//Функция включения(выключения) звука таймера
 function onOffAudio() {
-    if (document.getElementById("audio-button").value == 'ON') {
-        let audioButton = document.getElementById("audio-button")
-        audioButton.classList.remove('audio-button-on', 'audio-button-off');
-        audioButton.classList.add('audio-button-off');
-        document.getElementById("audio-button").value = 'OFF';
-    } else if (document.getElementById("audio-button").value == 'OFF') {
-        let audioButton = document.getElementById("audio-button")
-        audioButton.classList.remove('audio-button-off', 'audio-button-on');
-        audioButton.classList.add('audio-button-on');
-        document.getElementById("audio-button").value = 'ON';
-    }
+    const button = document.getElementById("audio-button");
+    const enabled = button.value === "ON";
+    button.classList.remove("audio-button-on", "audio-button-off");
+    button.classList.add(enabled ? "audio-button-off" : "audio-button-on");
+    button.value = enabled ? "OFF" : "ON";
 }
 
-// Функция добавления класса body
+function updateButtons(state) {
+    document.getElementById("start-button").style.visibility = state === "stopped" ? "visible" : "hidden";
+    document.getElementById("pause-button").style.visibility = state === "running" ? "visible" : "hidden";
+    document.getElementById("resume-button").style.visibility = state === "paused" ? "visible" : "hidden";
+}
+
 function addClass() {
     document.body.classList.add("body");
 }
 
-// Функция изменения фона body путём удаления и добавления
-// соответствующего класса
 function changeColor() {
     document.body.classList.remove("body");
     setTimeout(addClass, 500);
 }
-
-
