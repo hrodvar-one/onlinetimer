@@ -162,9 +162,9 @@ function onOffAudio() {
 }
 
 function updateButtons(state) {
-    document.getElementById("start-button").style.visibility = state === "stopped" ? "visible" : "hidden";
-    document.getElementById("pause-button").style.visibility = state === "running" ? "visible" : "hidden";
-    document.getElementById("resume-button").style.visibility = state === "paused" ? "visible" : "hidden";
+    document.getElementById("start-button").style.display = state === "stopped" ? "inline-block" : "none";
+    document.getElementById("pause-button").style.display = state === "running" ? "inline-block" : "none";
+    document.getElementById("resume-button").style.display = state === "paused" ? "inline-block" : "none";
 }
 
 function addClass() {

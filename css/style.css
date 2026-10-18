@@ -5,9 +5,12 @@ body {
   font: normal 10pt Arial, Helvetica, sans-serif;
   background: red;
 }
+* {
+  box-sizing: border-box;
+}
 body .container {
-  width: 950px;
-  margin: auto;
+  width: min(100%, 950px);
+  margin: 0 auto;
   display: block;
   border: 3px solid #1c1c1c;
 }
@@ -42,8 +45,9 @@ body .container .content {
   background-color: #c2c4fa;
 }
 body .container .content .timer {
-  height: 300px;
+  min-height: 300px;
   width: 100%;
+  padding: 0 12px;
 }
 body .container .content .timer .timer_panel {
   width: 100%;
@@ -58,24 +62,34 @@ body .container .content .timer .timer_panel td {
 }
 body .container .content .timer .timer_panel td input {
   background-color: #a09f9f;
-  height: 223px;
-  width: 223px;
+  height: clamp(100px, 24vw, 223px);
+  width: min(100%, 223px);
   text-align: center;
-  font-size: 200px;
+  font-size: clamp(48px, 19vw, 200px);
   font-weight: bold;
   border: 3px solid black;
 }
 body .container .content .button-panel {
-  height: 90px;
+  min-height: 90px;
   position: relative;
-  margin-top: 40px;
-  margin-left: 250px;
-  margin-bottom: 30px;
+  margin: 24px auto 30px;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   /*text-align: center;*/
+}
+body .container .content .button-panel .reset-button,
+body .container .content .button-panel .start-button,
+body .container .content .button-panel .pause-button,
+body .container .content .button-panel .resume-button {
+  flex: 0 1 220px;
 }
 body .container .content .button-panel .start-button {
   background-color: #118811;
-  width: 220px;
+  width: min(220px, 100%);
   height: 75px;
   border: 4px black solid;
   border-radius: 10px;
@@ -88,7 +102,7 @@ body .container .content .button-panel .start-button:hover {
 }
 body .container .content .button-panel .reset-button {
   background-color: #333333;
-  width: 220px;
+  width: min(220px, 100%);
   height: 75px;
   border: 4px black solid;
   border-radius: 10px;
@@ -100,11 +114,10 @@ body .container .content .button-panel .reset-button:hover {
   background-color: #4D4D4D;
 }
 body .container .content .button-panel .pause-button {
-  position: relative;
-  left: -224px;
-  visibility: hidden;
+  position: static;
+  display: none;
   background-color: chocolate;
-  width: 220px;
+  width: min(220px, 100%);
   height: 75px;
   border: 4px black solid;
   border-radius: 10px;
@@ -116,12 +129,10 @@ body .container .content .button-panel .pause-button:hover {
   background-color: #ee7f31;
 }
 body .container .content .button-panel .resume-button {
-  position: relative;
-  left: 224px;
-  top: -75px;
-  visibility: hidden;
+  position: static;
+  display: none;
   background-color: #175eb7;
-  width: 220px;
+  width: min(220px, 100%);
   height: 75px;
   border: 4px black solid;
   border-radius: 10px;
@@ -144,11 +155,16 @@ body .container .content .fast-timer-panel h2 {
   border-bottom: 2px solid black;
 }
 body .container .content .fast-timer-panel .fast-timer-button {
-  margin-left: 40px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 body .container .content .fast-timer-panel .fast-timer-button .fast-button {
   height: 90px;
-  margin: 40px;
+  min-width: 150px;
+  margin: 0;
   background-color: darkorange;
   border: 4px black solid;
   border-radius: 10px;
@@ -205,4 +221,49 @@ body .container .content .audio-setting-panel .audio-setting-button .audio-butto
   background: #afaeae;
 }
 
-/*# sourceMappingURL=style.css.map */
+@media (max-width: 600px) {
+  body .container .header h1 {
+    padding: 12px 14px;
+    font-size: 1.5rem;
+  }
+  body .container .content .timer {
+    min-height: 0;
+    padding: 0 4px;
+  }
+  body .container .content .timer .timer_panel th {
+    height: 42px;
+    font-size: 1rem;
+  }
+  body .container .content .timer .timer_panel td input {
+    height: clamp(86px, 25vw, 140px);
+    font-size: clamp(42px, 15vw, 82px);
+    padding: 0;
+  }
+  body .container .content .button-panel {
+    margin: 20px auto;
+    gap: 10px;
+  }
+  body .container .content .button-panel .start-button,
+  body .container .content .button-panel .reset-button,
+  body .container .content .button-panel .pause-button,
+  body .container .content .button-panel .resume-button {
+    width: calc(50% - 6px);
+    height: 58px;
+    font-size: clamp(18px, 5vw, 26px);
+  }
+  body .container .content .fast-timer-panel h2,
+  body .container .content .audio-setting-panel h2 {
+    padding: 10px 14px;
+    font-size: 1.1rem;
+  }
+  body .container .content .fast-timer-panel .fast-timer-button {
+    gap: 10px;
+    padding: 14px 10px;
+  }
+  body .container .content .fast-timer-panel .fast-timer-button .fast-button {
+    min-width: 0;
+    width: calc(50% - 5px);
+    height: 64px;
+    font-size: 1.1rem;
+  }
+}
