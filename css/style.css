@@ -65,7 +65,8 @@ body .container .content .timer .timer_panel td input {
   height: clamp(100px, 24vw, 223px);
   width: min(100%, 223px);
   text-align: center;
-  font-size: clamp(48px, 19vw, 200px);
+  font-size: clamp(48px, 16vw, 160px);
+  padding: 0;
   font-weight: bold;
   border: 3px solid black;
 }
